@@ -69,7 +69,8 @@ const Signin = () => {
                 <span className="label-text">Email</span>
               </label>
               <input
-                type="text"
+                type="email"
+                name="email"
                 placeholder="email"
                 className="input input-bordered"
               />
@@ -79,7 +80,8 @@ const Signin = () => {
                 <span className="label-text">Password</span>
               </label>
               <input
-                type="text"
+                type="password"
+                name="password"
                 placeholder="password"
                 className="input input-bordered"
               />
@@ -102,7 +104,7 @@ const Signin = () => {
             <div className="form-control mt-6">
               <button className="btn btn-primary">Sign in</button>
               
-              <p className="mt-8 text-xs text-center text-gray-200">
+              <p className="mt-8 text-md text-center text-gray-200">
                 Don't have an account yet?{" "}
                 <Link
                   to={"/signup"}
