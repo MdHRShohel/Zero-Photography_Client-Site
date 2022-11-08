@@ -42,6 +42,14 @@ const Nav = () => {
                   Services
                 </Link>
               </li>
+              <li>
+                <Link
+                  className="btn btn-outline btn-primary btn-md my-2"
+                  to="/blogs"
+                >
+                  Blogs
+                </Link>
+              </li>
             </ul>
           </div>
           <Link to="/">
@@ -63,10 +71,18 @@ const Nav = () => {
                 Services
               </Link>
             </li>
+            <li>
+              <Link
+                className="btn btn-outline btn-primary btn-md mx-2"
+                to="/blogs"
+              >
+                Blogs
+              </Link>
+            </li>
           </ul>
         </div>
         <div className="navbar-end">
-          <Link className="btn">Get started</Link>
+          <Link to="/signin" className="btn">Sign IN</Link>
         </div>
       </div>
     );
