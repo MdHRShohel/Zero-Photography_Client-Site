@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import logo from '../asstes/Logo/logo.png'
 const Nav = () => {
     return (
-      <div className="navbar bg-base-100">
+      <div className="container mx-auto navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -27,24 +27,41 @@ const Nav = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link to="/">Home</Link>
+                <Link
+                  className="btn btn-outline btn-primary btn-md my-2"
+                  to="/"
+                >
+                  Home
+                </Link>
               </li>
               <li>
-                <Link to="/services">Services</Link>
+                <Link
+                  className="btn btn-outline btn-primary btn-md my-2"
+                  to="/services"
+                >
+                  Services
+                </Link>
               </li>
             </ul>
           </div>
           <Link to="/">
-            <img className="w-32 ml-8" src={logo} alt="" />
+            <img className="md:h-32 p-2 ml-4" src={logo} alt="" />
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
             <li>
-              <Link to="/">Home</Link>
+              <Link className="btn btn-outline btn-primary btn-md mx-2" to="/">
+                Home
+              </Link>
             </li>
             <li>
-              <Link to="/services">Services</Link>
+              <Link
+                className="btn btn-outline btn-primary btn-md mx-2"
+                to="/services"
+              >
+                Services
+              </Link>
             </li>
           </ul>
         </div>
