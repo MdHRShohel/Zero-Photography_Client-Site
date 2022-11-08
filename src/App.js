@@ -1,11 +1,11 @@
+import { RouterProvider } from 'react-router-dom';
 import './App.css';
+import { routes } from './Routers/Routes';
 
 function App() {
   return (
-    <div>
-      <h2>Welcome to</h2>
-      <h1>Zero photo</h1>
-      <p>photography</p>
+    <div data-theme="aqua">
+      <RouterProvider router={routes}></RouterProvider>
     </div>
   );
 }
