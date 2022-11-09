@@ -52,12 +52,12 @@ const Signin = () => {
       }}
     >
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl hero-overlay">
+        <div className="card flex-shrink-0 w-1/2 shadow-2xl hero-overlay">
           <div className="hero-content">
             <img
               src="https://scontent.fdac24-2.fna.fbcdn.net/v/t39.30808-6/270747295_646139710148481_1997361153063211465_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeHaGzuA6DVMHkt_8y8tp56E6gidaAh_x-HqCJ1oCH_H4e_i3xUXYgF5WLAGKxLKUQgmIIE_7RQtdOrXkJmC_QYX&_nc_ohc=EP7pMRU_TpQAX_tbAfM&_nc_ht=scontent.fdac24-2.fna&oh=00_AfCcxwzISdQ6NrBCkZFvVH0S4ArIJKrkhteNQiIxKYshNQ&oe=636F6C91"
               alt="Sign in"
-              className="w-96 rounded-lg shadow-2xl"
+              className="w-full rounded-lg shadow-2xl"
             />
           </div>
           <form onSubmit={handleSubmit} className="card-body">

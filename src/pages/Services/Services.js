@@ -31,9 +31,9 @@ const Services = () => {
               <p>{service.description.slice(0, 100)}...</p>
               <div className="card-actions flex items-center md:space-x-10">
                 <p className="mt-8 text-xl">Price: ${service.price}</p>
-                <button className="btn btn-outline mx-auto mt-8">
+                <Link to={`/services/${service._id}`} className="btn btn-outline mx-auto mt-8">
                   VIEW DETAILS
-                </button>
+                </Link>
               </div>
             </div>
           </div>

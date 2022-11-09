@@ -70,12 +70,12 @@ const Signup = () => {
       }}
     >
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl hero-overlay">
+        <div className="card flex-shrink-0 w-1/2 shadow-2xl hero-overlay">
           <div className="hero-content">
             <img
-              src="https://scontent.fdac24-2.fna.fbcdn.net/v/t39.30808-6/270747295_646139710148481_1997361153063211465_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeHaGzuA6DVMHkt_8y8tp56E6gidaAh_x-HqCJ1oCH_H4e_i3xUXYgF5WLAGKxLKUQgmIIE_7RQtdOrXkJmC_QYX&_nc_ohc=EP7pMRU_TpQAX_tbAfM&_nc_ht=scontent.fdac24-2.fna&oh=00_AfCcxwzISdQ6NrBCkZFvVH0S4ArIJKrkhteNQiIxKYshNQ&oe=636F6C91"
+              src="https://scontent.fdac24-1.fna.fbcdn.net/v/t39.30808-6/260692621_623613502401102_8280793439279119348_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeEzx1vli1u-BLjeDTjbF0wmGKffaeCAN8QYp99p4IA3xAGO8c8F7O-MsE5GyEUjZidjpe3DuEH9QIjl5Izy-FRq&_nc_ohc=QYug2S_1VfkAX-cC6_b&_nc_ht=scontent.fdac24-1.fna&oh=00_AfDehA_pPGnc8nXcoNHcXy4B5Y8bcgCqLVft1OIzq3g5sQ&oe=636EFBAB"
               alt="Sign in"
-              className="w-96 rounded-lg shadow-2xl"
+              className="w-full rounded-lg shadow-2xl"
             />
           </div>
           <form onSubmit={handleSubmit} className="card-body">
@@ -144,7 +144,7 @@ const Signup = () => {
               </p>
               <h5 className="text-center text-lg font-semibold mt-4">OR</h5>
               <button
-                   onClick={handleGoogleSignIn}
+                onClick={handleGoogleSignIn}
                 type="button"
                 className="btn flex items-center justify-center w-full py-2 mt-4 text-sm font-medium text-white transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none"
               >
