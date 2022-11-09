@@ -39,14 +39,6 @@ const Services = () => {
           </div>
         ))}
       </div>
-      <div className="flex">
-        <Link
-          to="/services"
-          className="btn btn-wide font-bold  text-lg mx-auto mt-12"
-        >
-          VIEW ALL
-        </Link>
-      </div>
     </div>
   );
 };
