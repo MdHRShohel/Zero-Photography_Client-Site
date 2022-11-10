@@ -9,6 +9,7 @@ import Home from "../pages/Home/Home";
 import MyReviews from "../pages/MyReviews/MyReviews";
 import ServiceDetails from "../pages/ServiceDetails/ServiceDetails";
 import Services from "../pages/Services/Services";
+import PrivateRoute from "./PrivateRoute";
 
 export const routes = createBrowserRouter([
   {
@@ -21,37 +22,46 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/signin",
-        element: <Signin></Signin>
+        element: <Signin></Signin>,
       },
       {
         path: "/signup",
-        element: <Signup></Signup>
+        element: <Signup></Signup>,
       },
       {
         path: "/services",
-        element: <Services></Services>
+        element: <Services></Services>,
       },
       {
-        path:"/services/:id",
+        path: "/services/:id",
         element: <ServiceDetails></ServiceDetails>,
-        loader:({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/services/${params.id}`),
       },
       {
         path: "blogs",
-        element: <Blogs></Blogs>
+        element: <Blogs></Blogs>,
       },
       {
         path: "/add-service",
-        element: <AddService></AddService>
+        element: (
+          <PrivateRoute>
+            <AddService></AddService>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/my-reviews",
-        element: <MyReviews></MyReviews>
+        element: (
+          <PrivateRoute>
+            <MyReviews></MyReviews>
+          </PrivateRoute>
+        ),
       },
       {
         path: "*",
-        element: <ErrorPage></ErrorPage>
-      }
+        element: <ErrorPage></ErrorPage>,
+      },
     ],
   },
 ]);

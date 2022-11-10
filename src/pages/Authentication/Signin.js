@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
+import toast from "react-hot-toast";
+
 
 const Signin = () => {
   const { ProviderLogin, signInWithMailPass } = useContext(AuthContext);
@@ -9,7 +11,6 @@ const Signin = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-
   const from = location.state?.from?.pathname || "/";
 
   const googleProvider = new GoogleAuthProvider();
@@ -35,7 +36,9 @@ const Signin = () => {
   const handleGoogleSignIn = () => {
     ProviderLogin(googleProvider)
       .then((result) => {
-        console.log(result.user);
+        if (result.user.uid) {
+          toast.success("Login Successful");
+        }
         setError("");
         navigate(from, { replace: true });
       })

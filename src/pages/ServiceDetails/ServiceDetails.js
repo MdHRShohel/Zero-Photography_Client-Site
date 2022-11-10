@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
 const ServiceDetails = () => {
@@ -54,9 +54,9 @@ const ServiceDetails = () => {
     //console.log(reviews);
   return (
     <div>
-      <section className="hero min-h-screen bg-base-200">
+      <section className="hero lg:min-h-screen bg-base-200">
         <div className="hero-content flex-col">
-          <img src={img} alt="" className=" rounded-lg max-h-fit shadow-2xl" />
+          <img src={img} alt="" className=" rounded-lg  shadow-2xl" />
           <div>
             <h1 className="text-5xl mb-8 font-bold">{title}</h1>
             <p className="text-3xl font-bold">Price: ${price}</p>
@@ -68,70 +68,90 @@ const ServiceDetails = () => {
         <h1 className="text-3xl my-6 font-semibold">
           Total {reviews.length} Reviews !!
         </h1>
+
         {reviews.map((review) => (
-          <tbody key={review._id}>
-            <tr>
-              <td>
-                <div className="flex items-center space-x-3">
-                  <div className="avatar">
-                    <div className="rounded-lg w-12 h-12 my-2">
-                      <img src={review.userImg} alt="" />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="font-bold">{review.name}</div>
-                    <h4 className="text-sm opacity-50">{review.email}</h4>
+          <div key={review._id}>
+            <div>
+              <div className="flex items-center space-x-4">
+                <div className="avatar">
+                  <div className="rounded-lg w-12 h-12 my-2">
+                    <img src={review.userImg} alt="" />
                   </div>
                 </div>
-              </td>
-              <td className="mx-4">{review.review}</td>
-            </tr>
-          </tbody>
+                <div>
+                  <div className="font-bold">{review.name}</div>
+                  <h4 className="text-sm opacity-50">{review.email}</h4>
+                </div>
+                <p className="text-lg mx-4">{review.review}</p>
+              </div>
+            </div>
+          </div>
         ))}
       </section>
       <div>
-        <form onSubmit={AddReview}>
-          <div className="w-full p-8 my-4 md:px-12  mx-auto rounded-2xl shadow-2xl">
-            <div className="">
-              <h1 className="font-bold uppercase text-3xl">Leave a Review</h1>
-            </div>
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
-              <input
-                name="name"
-                type="text"
-                placeholder="Name*"
-                className="w-full bg-gray-200 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                required
-              />
+        {user?.email ? (
+          <form onSubmit={AddReview}>
+            <h1 className="font-bold text-center uppercase text-3xl mt-12">
+              Leave a Review
+            </h1>
+            <div className="w-2/3 mx-auto p-8 md:px-12 rounded-2xl shadow-2xl">
+              <div></div>
+              <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
+                <input
+                  name="name"
+                  type="text"
+                  placeholder="Name*"
+                  className="w-full bg-gray-200 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                  required
+                />
 
-              <input
-                defaultValue={user?.email}
-                name="email"
-                type="email"
-                readOnly
-                placeholder="Email*"
-                className="w-full bg-gray-200 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                required
-              />
+                <input
+                  defaultValue={user?.email}
+                  name="email"
+                  type="email"
+                  readOnly
+                  placeholder="Email*"
+                  className="w-full bg-gray-200 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                  required
+                />
+              </div>
+              <div className="my-4">
+                <textarea
+                  name="review"
+                  placeholder="Review*"
+                  className="w-full h-32 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                  required
+                ></textarea>
+              </div>
+              <div className="my-2 w-1/2 lg:w-1/4">
+                <button
+                  type="submit"
+                  className="btn btn-secondary uppercase text-sm font-bold tracking-wide p-3 rounded-lg w-full"
+                >
+                  Submit
+                </button>
+              </div>
             </div>
+          </form>
+        ) : (
+          <div className="text-center">
             <div className="my-4">
               <textarea
                 name="review"
-                placeholder="Review*"
-                className="w-full h-32 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                defaultValue="Sign in to Leave a Review"
+                className="w-1/2 h-20 bg-gray-100 text-gray-900 text-2xl font-bold mt-2 p-3 rounded-lg 
+                textarea
+                textarea-primary
+                focus:outline-none focus:shadow-outline"
                 required
+                readOnly
               ></textarea>
             </div>
-            <div className="my-2 w-1/2 lg:w-1/4">
-              <button
-                type="submit"
-                className="btn btn-secondary uppercase text-sm font-bold tracking-wide p-3 rounded-lg w-full"
-              >
-                Submit
-              </button>
-            </div>
+            <Link to="/signin" className="btn btn-large text-2xl font-bold">
+              Sign in
+            </Link>
           </div>
-        </form>
+        )}
       </div>
     </div>
   );

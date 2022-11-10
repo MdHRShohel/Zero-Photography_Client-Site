@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
+import toast from "react-hot-toast";
 
 const Signup = () => {
 
@@ -9,6 +10,8 @@ const Signup = () => {
 
     const [error, setError] = useState("");
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -17,15 +20,17 @@ const Signup = () => {
       const photoURL = e.target.photoURL.value;
       const email = e.target.email.value;
       const password = e.target.password.value;
-      console.log(email, password, name, photoURL);
+      //console.log(email, password, name, photoURL);
       createUser(email, password)
         .then((result) => {
-          const user = result.user;
+           if (result.user.uid) {
+             toast.success("Login Successful");
+           }
           userUpdateProfile(name, photoURL);
-          console.log(user);
+          //console.log(user);
           setError("");
           form.reset();
-          navigate("/");
+          navigate(from, { replace: true });;
         })
         .catch((error) => {
           setError(error.message);
@@ -41,7 +46,7 @@ const Signup = () => {
         .then(() => {
           //console.log('Profile Updated');
           setError("");
-          navigate("/");
+          navigate(from, { replace: true });
         })
         .catch((error) => {
           setError(error.message);
@@ -53,9 +58,11 @@ const Signup = () => {
     const handleGoogleSignIn = () => {
       ProviderLogin(googleProvider)
         .then((result) => {
-          console.log(result.user);
+          if (result.user.uid){
+            toast.success('Login Successful');
+          };
           setError("");
-          navigate("/");
+          navigate(from, { replace: true });
         })
         .catch((error) => {
           setError(error.message);
