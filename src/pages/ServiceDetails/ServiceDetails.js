@@ -1,15 +1,18 @@
 import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useLocation } from "react-router-dom";
+import useTitle from "../../components/UseTitle";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
 const ServiceDetails = () => {
     const {_id, title, img, price, description } = useLoaderData();
+      const location = useLocation();
+
     const { user } = useContext(AuthContext);
     
     const [reviews, setReviews] = useState([]);
     //console.log(serviceId);
-
+    useTitle("ZP | Service Details");
     //review add handler
   const AddReview = (event) => {
     event.preventDefault();
@@ -147,7 +150,12 @@ const ServiceDetails = () => {
                 readOnly
               ></textarea>
             </div>
-            <Link to="/signin" className="btn btn-large text-2xl font-bold">
+            <Link
+              to="/signin"
+              state={{ from: location }}
+              replace
+              className="btn btn-large text-2xl font-bold"
+            >
               Sign in
             </Link>
           </div>

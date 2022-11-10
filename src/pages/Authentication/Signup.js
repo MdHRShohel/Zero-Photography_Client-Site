@@ -3,8 +3,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 import toast from "react-hot-toast";
+import useTitle from "../../components/UseTitle";
+
 
 const Signup = () => {
+
+   useTitle("ZP | Signup");
 
     const { ProviderLogin, createUser, updateUser } = useContext(AuthContext);
 

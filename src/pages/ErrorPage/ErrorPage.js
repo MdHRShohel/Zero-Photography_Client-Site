@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useTitle from '../../components/UseTitle';
 
 const ErrorPage = () => {
+  useTitle("ZP | Error");
 
     return (
       <section>

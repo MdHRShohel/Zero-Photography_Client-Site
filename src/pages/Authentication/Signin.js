@@ -3,11 +3,13 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 import toast from "react-hot-toast";
-
+import useTitle from "../../components/UseTitle";
 
 const Signin = () => {
   const { ProviderLogin, signInWithMailPass } = useContext(AuthContext);
   const [error, setError] = useState("");
+
+  useTitle("ZP | Signin");
 
   const navigate = useNavigate();
   const location = useLocation();

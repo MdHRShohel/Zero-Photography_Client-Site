@@ -41,6 +41,7 @@ const AuthProvider = ({children}) => {
         });
         return () => unsubscribe();
         },[]);
+        
 
     const authInfo = {
       user,
@@ -49,7 +50,7 @@ const AuthProvider = ({children}) => {
       createUser,
       updateUser,
       signInWithMailPass,
-      loading,
+      loading
     };
     return (
         <AuthContext.Provider value={ authInfo }>

@@ -3,8 +3,10 @@ import Banner from './Banner';
 import Contact from './Contact';
 import Gallery from './Gallery';
 import ServicesHome from './ServicesHome';
+import useTitle from "../../components/UseTitle";
 
 const Home = () => {
+  useTitle("ZP | Home");
     return (
       <div>
         <Banner></Banner>

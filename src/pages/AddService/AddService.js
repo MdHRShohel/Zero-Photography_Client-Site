@@ -1,6 +1,8 @@
 import React from 'react';
 import toast from "react-hot-toast";
+import useTitle from '../../components/UseTitle';
 const AddService = () => {
+  useTitle("ZP | Add Service");
   //review add handler
   const addService = (event) => {
     event.preventDefault();

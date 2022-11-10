@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { PhotoProvider, PhotoView } from "react-photo-view";
+import useTitle from "../../components/UseTitle";
 
 const Services = () => {
   const [services, setServices] = useState([]);
+
+  useTitle("ZP | Services");
 
   useEffect(() => {
     fetch("http://localhost:5000/services")

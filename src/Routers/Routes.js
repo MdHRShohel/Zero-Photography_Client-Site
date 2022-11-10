@@ -10,6 +10,7 @@ import MyReviews from "../pages/MyReviews/MyReviews";
 import ServiceDetails from "../pages/ServiceDetails/ServiceDetails";
 import Services from "../pages/Services/Services";
 import PrivateRoute from "./PrivateRoute";
+import PublicRoute from "./PublicRoute";
 
 export const routes = createBrowserRouter([
   {
@@ -30,7 +31,11 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/services",
-        element: <Services></Services>,
+        element: (
+          <PublicRoute>
+            <Services></Services>
+          </PublicRoute>
+        ),
       },
       {
         path: "/services/:id",
