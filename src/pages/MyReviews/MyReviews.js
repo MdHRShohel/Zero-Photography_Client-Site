@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import AllReviewsRow from "./AllReviewsRow";
 
@@ -9,15 +10,31 @@ const MyReviews = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch(`http://localhost:5000/reviews?email=${user?.email}`)
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        const showReview = data.filter((show) => show.email === user?.email);
-        setReviews(showReview);
-      });
+      .then((data) => setReviews(data));
   }, [user?.email]);
-  console.log(reviews);
+
+  //console.log(reviews);
+
+  const handleDelete = (id) => {
+    const proceed = window.confirm(
+      "Are you sure, you want to delete this review"
+    );
+    if (proceed) {
+      fetch(`http://localhost:5000/reviews/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            toast("Deleted Successfully");
+            const remaining = reviews.filter((rev) => rev._id !== id);
+            setReviews(remaining);
+          }
+        });
+    }
+  };
 
   return (
     <div>
@@ -39,31 +56,15 @@ const MyReviews = () => {
           </thead>
           <tbody>
             {reviews.map((review) => (
-              <AllReviewsRow key={review._id} review={review} />
+              <AllReviewsRow
+                key={review._id}
+                review={review}
+                handleDelete={handleDelete}
+              />
             ))}
           </tbody>
         </table>
       </div>
-
-      {/*
-      {reviews.map((review) => (
-        <AllReviews key={review._id} review={review}></AllReviews>
-      ))}
-       <div
-          key={review._id}
-          className="flex flex-col justify-center items-center"
-        >
-          <div className="flex flex-col justify-center items-center">
-            <img
-              src={review.userImg}
-              alt=""
-              className="rounded-full w-20 h-20"
-            />
-            <h2 className="text-2xl font-bold">{review.name}</h2>
-            <h3 className="text-xl font-bold">{review.email}</h3>
-            <p className="text-xl font-bold">{review.review}</p>
-          </div>
-        </div>*/}
     </div>
   );
 };

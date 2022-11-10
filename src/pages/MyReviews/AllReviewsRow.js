@@ -2,7 +2,7 @@ import React from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { BiEdit } from "react-icons/bi";
 
-const AllReviewsRow = ({review}) => {
+const AllReviewsRow = ({review, handleDelete}) => {
   return (
     <tr>
       <td>
@@ -23,7 +23,10 @@ const AllReviewsRow = ({review}) => {
         <button className="btn btn-outline  text-3xl btn-accent mx-2">
           <BiEdit />
         </button>
-        <button className="btn btn-outline  text-3xl btn-accent">
+        <button
+          onClick={() => handleDelete(review._id)}
+          className="btn btn-outline  text-3xl btn-accent"
+        >
           <AiFillDelete />
         </button>
       </th>
