@@ -19,7 +19,7 @@ const ServicesHome = () => {
             SERVICES
           </h1>
         </div>
-        <div className="grid justify-center m-auto justify-items-center gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-16 container mx-auto ">
+        <div className="grid justify-center m-auto justify-items-center gap-6 grid-cols-1 lg:grid-cols-3 mt-16 container mx-auto ">
           {services.map((service) => (
             <div
               key={service._id}

@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 import logo from '../asstes/Logo/logo.png'
 import { AuthContext } from '../Context/AuthProvider/AuthProvider';
 import { FaUserAlt } from "react-icons/fa";
+import toast from 'react-hot-toast';
 
 const Nav = () => {
 
    const { user, logOut } = useContext(AuthContext);
    const handleLogOut = () => {
      logOut().then(() => {
-       console.log("User Logged Out");
+       toast.success("User Logged Out");
      });
    };
 
@@ -61,10 +62,32 @@ const Nav = () => {
                   Blogs
                 </Link>
               </li>
+              {user?.uid ? (
+              <>
+              <li>
+                <Link
+                  className="btn btn-outline btn-primary btn-md my-2"
+                  to="/my-reviews"
+                >
+                  My reviews
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="btn btn-outline btn-primary btn-md my-2"
+                  to="/add-service"
+                >
+                  Add service
+                </Link>
+              </li>
+              </>
+            ) : (
+              <li></li>
+            )}
             </ul>
           </div>
           <Link to="/">
-            <img className="md:h-32 p-2 ml-4" src={logo} alt="" />
+            <img className="h-24 md:h-32 p-2 ml-4" src={logo} alt="" />
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -90,6 +113,28 @@ const Nav = () => {
                 Blogs
               </Link>
             </li>
+            {user?.uid ? (
+              <>
+              <li>
+                <Link
+                  className="btn btn-outline btn-primary btn-md mx-2"
+                  to="/my-reviews"
+                >
+                  My reviews
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="btn btn-outline btn-primary btn-md mx-2"
+                  to="/add-service"
+                >
+                  Add service
+                </Link>
+              </li>
+              </>
+            ) : (
+              <li></li>
+            )}
           </ul>
         </div>
         <div className="navbar-end">
@@ -102,10 +147,7 @@ const Nav = () => {
             </h2>
           ) : (
             <>
-              <Link
-                to="/signin"
-                className="btn btn-primary btn-md mx-2"
-              >
+              <Link to="/signin" className="btn btn-primary btn-md mx-2">
                 Sign in
               </Link>
               <Link
