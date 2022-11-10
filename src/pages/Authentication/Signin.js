@@ -25,12 +25,29 @@ const Signin = () => {
     //console.log(email, password);
     signInWithMailPass(email, password)
       .then((result) => {
-        console.log(result.user);
+        const user = result.user;
         setError("");
         form.reset();
-        navigate(from, { replace: true });
+        // get jwt token
+        const currentUser = {
+          email: user.email,
+        };
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("zero-token", data.token);
+            navigate(from, { replace: true });
+          })
+          .catch((error) => console.error(error));
       })
       .catch((error) => {
+        console.error("error : ", error);
         setError(error.message);
       });
   };

@@ -53,7 +53,7 @@ const ServiceDetails = () => {
           );            
          setReviews(showReview);
         });
-    }, [_id]);
+    }, [reviews]);
     //console.log(reviews);
   return (
     <div>

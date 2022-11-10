@@ -1,8 +1,9 @@
 import React from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { BiEdit } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
-const AllReviewsRow = ({review, handleDelete}) => {
+const AllReviewsRow = ({ review, handleDelete }) => {
   return (
     <tr>
       <td>
@@ -20,9 +21,14 @@ const AllReviewsRow = ({review, handleDelete}) => {
       <td>{review.serviceTitle}</td>
       <td>{review.review}</td>
       <th>
-        <button className="btn btn-outline  text-3xl btn-accent mx-2">
-          <BiEdit />
-        </button>
+        <Link to={`/update/${review._id}`}>
+          <label
+            htmlFor="my-modal-6"
+            className="btn btn-outline  text-3xl btn-accent mx-2"
+          >
+            <BiEdit />
+          </label>
+        </Link>
         <button
           onClick={() => handleDelete(review._id)}
           className="btn btn-outline  text-3xl btn-accent"
