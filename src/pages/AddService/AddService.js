@@ -12,7 +12,7 @@ const AddService = () => {
     const description = event.target.description.value;
     const newService = { title, img, price, description };
 
-    fetch("http://localhost:5000/add-service", {
+    fetch("https://zero-photography-server.vercel.app/add-service", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

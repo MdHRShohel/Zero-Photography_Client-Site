@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { PhotoProvider, PhotoView } from "react-photo-view";
+import { Link } from "react-router-dom";
 import useTitle from "../../components/UseTitle";
 
 const Services = () => {
@@ -9,7 +9,7 @@ const Services = () => {
   useTitle("ZP | Services");
 
   useEffect(() => {
-    fetch("http://localhost:5000/services")
+    fetch("https://zero-photography-server.vercel.app/services")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);

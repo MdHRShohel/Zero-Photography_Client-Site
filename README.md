@@ -1,10 +1,8 @@
 # Project Name: Zero Photography
 
-This project was about My services where i can offer many services to the people. User can review on my services and also he can see all his reviews.
+This project was about the Photography services where A client can offer many services to the people. User can review on clients services and also he can see all his reviews.
 ## Live Website Link: https://zero-photography.web.app/
 
-
-*
 ## Languages 
 
 A list of Languages used within the project:

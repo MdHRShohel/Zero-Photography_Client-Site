@@ -24,7 +24,7 @@ const ServiceDetails = () => {
     const review = event.target.review.value;
     const reviewData = {serviceId, serviceTitle,userImg, name, email, review};
     
-    fetch("http://localhost:5000/add-review", {
+    fetch("https://zero-photography-server.vercel.app/add-review", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +45,7 @@ const ServiceDetails = () => {
   };
 
     useEffect(() => {
-      fetch("http://localhost:5000/reviews")
+      fetch("https://zero-photography-server.vercel.app/reviews")
         .then((res) => res.json())
         .then((data) => {
           const showReview = data.filter(

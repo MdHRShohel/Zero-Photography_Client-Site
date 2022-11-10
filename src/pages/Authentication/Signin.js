@@ -1,9 +1,9 @@
-import React, { useContext, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
+import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useTitle from "../../components/UseTitle";
+import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
 const Signin = () => {
   const { ProviderLogin, signInWithMailPass } = useContext(AuthContext);
@@ -32,7 +32,7 @@ const Signin = () => {
         const currentUser = {
           email: user.email,
         };
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://zero-photography-server.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",
