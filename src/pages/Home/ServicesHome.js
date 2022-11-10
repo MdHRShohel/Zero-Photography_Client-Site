@@ -19,7 +19,7 @@ const ServicesHome = () => {
             SERVICES
           </h1>
         </div>
-        <div className="grid justify-center m-auto justify-items-center gap-6 grid-cols-1 lg:grid-cols-3 mt-16 container mx-auto ">
+        <div className="grid justify-center m-auto justify-items-center gap-6 grid-cols-1 lg:grid-cols-3 mt-16 container mx-auto">
           {services.map((service) => (
             <div
               key={service._id}
@@ -49,9 +49,9 @@ const ServicesHome = () => {
         <div className="flex">
           <Link
             to="/services"
-            className="btn btn-secondary btn-wide font-bold  text-lg mx-auto mt-12"
+            className="btn btn-secondary btn-wide font-bold  text-lg mx-auto my-12"
           >
-            VIEW ALL
+            SEE ALL
           </Link>
         </div>
       </PhotoProvider>

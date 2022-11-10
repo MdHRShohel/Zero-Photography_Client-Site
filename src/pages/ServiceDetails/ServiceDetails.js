@@ -14,11 +14,12 @@ const ServiceDetails = () => {
   const AddReview = (event) => {
     event.preventDefault();
     const serviceId = _id;
+    const serviceTitle = title;
     const userImg = user.photoURL;
     const name = event.target.name.value;
     const email = event.target.email.value;
     const review = event.target.review.value;
-    const reviewData = {serviceId,userImg, name, email, review};
+    const reviewData = {serviceId, serviceTitle,userImg, name, email, review};
     
     fetch("http://localhost:5000/add-review", {
       method: "POST",
@@ -45,7 +46,7 @@ const ServiceDetails = () => {
         .then((res) => res.json())
         .then((data) => {
           const showReview = data.filter(
-            (shw) => shw.serviceId === _id
+            (show) => show.serviceId === _id
           );            
          setReviews(showReview);
         });
