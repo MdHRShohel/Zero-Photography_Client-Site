@@ -77,7 +77,7 @@ const Signin = () => {
         <div className="card flex-shrink-0 w-1/2 shadow-2xl hero-overlay">
           <div className="hero-content">
             <img
-              src="https://scontent.fdac24-2.fna.fbcdn.net/v/t39.30808-6/270747295_646139710148481_1997361153063211465_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeHaGzuA6DVMHkt_8y8tp56E6gidaAh_x-HqCJ1oCH_H4e_i3xUXYgF5WLAGKxLKUQgmIIE_7RQtdOrXkJmC_QYX&_nc_ohc=EP7pMRU_TpQAX_tbAfM&_nc_ht=scontent.fdac24-2.fna&oh=00_AfCcxwzISdQ6NrBCkZFvVH0S4ArIJKrkhteNQiIxKYshNQ&oe=636F6C91"
+              src="https://a-static.besthdwallpaper.com/nice-girl-in-knitted-sweater-wallpaper-1680x1050-26614_5.jpg"
               alt="Sign in"
               className="w-full rounded-lg shadow-2xl"
             />
@@ -125,7 +125,7 @@ const Signin = () => {
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Sign in</button>
-              
+
               <p className="mt-8 text-md text-center text-gray-200">
                 Don't have an account yet?{" "}
                 <Link

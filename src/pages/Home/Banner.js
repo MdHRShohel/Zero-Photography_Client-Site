@@ -2,11 +2,11 @@ import React from 'react';
 
 const Banner = () => {
     return (
-      <div className="hero bg-base-100 mt-12 mb-12">
+      <div className="hero bg-base-100 mt-12 mb-12 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <img
             className="rounded-lg shadow-2xl md:max-w-xl lg:max-w-2xl"
-            src="https://t.ly/33dd"
+            src="https://i.pinimg.com/736x/b9/f2/d4/b9f2d4ac3d1c353fb848508478e9e0ba.jpg"
             alt=""
           />
           <div className="text-center">

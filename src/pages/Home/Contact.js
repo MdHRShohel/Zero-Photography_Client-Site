@@ -13,7 +13,7 @@ const Contact = () => {
             </button>
           </div>
           <img
-            src="https://t.ly/Pfbd"
+            src="https://websitedemos.net/photographer-04/wp-content/uploads/sites/507/2019/10/services-03-free-img.png"
             alt=""
             className=" hero-image rounded-lg shadow-2xl  md:max-w-2xl"
           />

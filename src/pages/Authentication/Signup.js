@@ -1,9 +1,9 @@
-import React, { useContext, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
+import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useTitle from "../../components/UseTitle";
+import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
 
 const Signup = () => {
@@ -84,7 +84,7 @@ const Signup = () => {
         <div className="card flex-shrink-0 w-1/2 shadow-2xl hero-overlay">
           <div className="hero-content">
             <img
-              src="https://scontent.fdac24-1.fna.fbcdn.net/v/t39.30808-6/260692621_623613502401102_8280793439279119348_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeEzx1vli1u-BLjeDTjbF0wmGKffaeCAN8QYp99p4IA3xAGO8c8F7O-MsE5GyEUjZidjpe3DuEH9QIjl5Izy-FRq&_nc_ohc=QYug2S_1VfkAX-cC6_b&_nc_ht=scontent.fdac24-1.fna&oh=00_AfDehA_pPGnc8nXcoNHcXy4B5Y8bcgCqLVft1OIzq3g5sQ&oe=636EFBAB"
+              src="https://img.freepik.com/premium-photo/portrait-beautiful-asian-woman-wear-countryside-dress-thai-fieldthailand-people_44277-15429.jpg"
               alt="Sign in"
               className="w-full rounded-lg shadow-2xl"
             />
